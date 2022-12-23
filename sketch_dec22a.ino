@@ -9,6 +9,7 @@ const int ot2 = 4;
 const int ot3 = 5; 
 const int ot4 = 6; 
 const int ot5 = 7; 
+const int relay = 9; 
 void setup () 
 { 
  Serial.begin(9600); 
@@ -17,6 +18,7 @@ void setup ()
  pinMode(ot3,OUTPUT);
  pinMode(ot4,OUTPUT);
  pinMode(ot5,OUTPUT);
+ pinMode(light,OUTPUT);
 } 
 void loop () 
 { 
@@ -44,6 +46,7 @@ void loop ()
  Serial.print(flexposition5);   
  if (flexposition1 > 8)// you can change this value according to your sensor reading
  {
+   digitalWrite(relay,LOW);
   digitalWrite(ot1,HIGH);
   digitalWrite(ot2,LOW);
   digitalWrite(ot3,LOW);
@@ -52,6 +55,7 @@ void loop ()
   }
   else if (flexposition2 > 8)
   {
+     digitalWrite(relay,LOW);
   digitalWrite(ot2,HIGH);
   digitalWrite(ot1,LOW);
   digitalWrite(ot3,LOW);
@@ -60,6 +64,7 @@ void loop ()
   }
  else if (flexposition3 > 8)
   {
+     digitalWrite(relay,LOW);
   digitalWrite(ot3,HIGH);
   digitalWrite(ot2,LOW);
   digitalWrite(ot1,LOW);
@@ -68,6 +73,7 @@ void loop ()
   }
   else if (flexposition4 > 8)
   {
+    digitalWrite(relay,LOW);  
   digitalWrite(ot4,HIGH);
   digitalWrite(ot2,LOW);
   digitalWrite(ot3,LOW);
@@ -76,6 +82,7 @@ void loop ()
   }
   else if (flexposition5 > 8)
   {
+  digitalWrite(relay,HIGH);  
   digitalWrite(ot5,HIGH);
   digitalWrite(ot2,LOW);
   digitalWrite(ot3,LOW);
